@@ -17,7 +17,7 @@ if __name__ == '__main__':
                                   database='basic_cs_scp')
     cursor = cnx.cursor()
 
-    ruta = '/Users/nicolas.caselli/GDrive/PUCV/PhD/Java/Bat_Metaheuristic/BAT_MH/resources/output'
+    ruta = '/Users/nicolas.caselli/GDrive/PUCV/PhD/Java/Bat_Metaheuristic/BAT_MH/resources/MSCP_NRH'
     with os.scandir(ruta) as archivos:
         for file in archivos:
             print(file.name)
@@ -26,8 +26,10 @@ if __name__ == '__main__':
                 fArchivo = open(file, 'r')
                 for lineaTxt in fArchivo:
 
-                    if linea < 3: #avanzamos 2 líneas para quitar las cabeceras de los archivos
+                    if linea <= 2: #avanzamos 2 líneas para quitar las cabeceras de los archivos
                         #print(lineaTxt)
+                        linea+=1
+                    elif linea >= 34:
                         linea+=1
                     else:
                         lineaLimpia = lineaTxt.replace(' ', '') #quitamos los espacios de la línea leída
